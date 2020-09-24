@@ -21,7 +21,7 @@ import couchdb
 # hardcoded to the setup I have on my local VMs
 
 # set up database
-couch_server = couchdb.Server('http://127.0.0.1:5984/')
+couch_server = couchdb.Server('http://admin:123456@127.0.0.1:5984/')
 db = couch_server.create('test-db1')
 
 # acquire the consumer
