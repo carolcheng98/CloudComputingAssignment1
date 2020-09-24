@@ -1,8 +1,11 @@
 # CloudComputingAssignment1
 
 Device: xm (as VM2) and xm1 (VM3) on the Chameleon
+
 Allow firewall, after each time the VM shuts down.
+
 sudo ufw allow 2181    (only xm)
+
 sudo ufw allow 9092   (both xm and xm1)
 
 1. Login to xm using ssh
