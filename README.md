@@ -2,8 +2,7 @@
 TEAM3: Xinmeng Zhang, Kerou (Carol) Cheng
 
 ## Explaining how the code works
-
-Device: xm (as VM2) and xm1 (VM3) on Chameleon
+Device: xm (as VM2) and xm1 (VM3) on Chameleon and two VMs on laptop (VM1_xinmeng and VM1_carol)
 
 ### Allow firewall, after each time the VMs shuts down.
 `sudo ufw allow 2181`    (only xm)
