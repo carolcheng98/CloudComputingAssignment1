@@ -9,6 +9,9 @@ Device: xm (as VM2) and xm1 (VM3) on Chameleon
 `sudo ufw allow 2181`    (only xm)
 `sudo ufw allow 9092`   (both xm and xm1)
 
+### Configure Kafka and Zookeeper (only have to do this once)
+Edit Kafka configuration file ( `server.properties`) on xm and xm1: change the first and the second IP address to the corresponding public floating IP, and change the zookeeper line's IP address with `<addr>:9092`.  
+
 ### Starting Zookeeper and Kafka servers on xm (VM2)
 1. Login to xm using ssh
 2. cd 'kafka folder in xm'
