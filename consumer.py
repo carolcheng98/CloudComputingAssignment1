@@ -29,7 +29,7 @@ db = couch_server['test-db1']
 consumer = KafkaConsumer (bootstrap_servers="129.114.24.206:9092",value_deserializer=lambda x: loads(x.decode('ascii')))
 
 # subscribe to topic
-consumer.subscribe (topics=["topic1","topic"])
+consumer.subscribe (topics=["topic1","topic2"])
 
 # we keep reading and printing
 for msg in consumer:
