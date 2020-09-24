@@ -33,6 +33,6 @@ Equal workload distribution
 ## Report on effort expended
 We started from the async. video tutorial to set up Chameleon VMs. Then we use the scaffolding code to config the Kafka and Zookeeper settings. We experimented for several times to figure out how VM1s, VM2 and VM3 are communicated from Kafka and Zookeeper ports. We had some problems with the firewalls and solved it with ufw command. 
 
-(###########. add comsumer drumping part. ###########. )
+(###########. add comsumer and couchDB part. ###########. )
 
 Finally, we correctly run the producer.py on VM1, displayed and dumped te JSON files on VM3's database. 
