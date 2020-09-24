@@ -29,7 +29,7 @@ db = couch_server.create('test-db1')
 consumer = KafkaConsumer (bootstrap_servers="129.114.24.206:9092",value_deserializer=lambda x: loads(x.decode('ascii')))
 
 # subscribe to topic
-consumer.subscribe (topics=["utilizations"])
+consumer.subscribe (topics=["topic1","topic"])
 
 # we keep reading and printing
 for msg in consumer:
@@ -50,7 +50,7 @@ for msg in consumer:
     info = data['info']
     db.save(data)
     print("Time: {}".format(time))
-    print("Information Received: {}".format(info))
+    print("Information Received: \n{}".format(info))
 
 # we are done. As such, we are not going to get here as the above loop
 # is a forever loop.

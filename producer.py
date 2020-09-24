@@ -46,7 +46,7 @@ for i in range (100):
     # You will need to modify it to send a JSON structure, say something
     # like <timestamp, contents of top>
     #
-    producer.send ("utilizations", msg)
+    producer.send ("utilizations", msg) #modify on local machine
     print("message sent: ", i)
     producer.flush ()   # try to empty the sending buffer
 
