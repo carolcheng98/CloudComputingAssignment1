@@ -21,8 +21,8 @@ import couchdb
 # hardcoded to the setup I have on my local VMs
 
 # set up database
-#couch_server = couchdb.Server('http://admin:123456@127.0.0.1:5984/')
-#db = couch_server.create('test-db1')
+couch_server = couchdb.Server('http://admin:123456@127.0.0.1:5984/')
+db = couch_server.create('test-db1')
 
 # acquire the consumer
 # (you will need to change this to your bootstrap server's IP addr)
@@ -48,7 +48,7 @@ for msg in consumer:
     data = msg.value
     time = data['time_stamp']
     info = data['info']
-    #db.save(data)
+    db.save(data)
     print("Time: {}".format(time))
     print("Information Received: {}".format(info))
 
