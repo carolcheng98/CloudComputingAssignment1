@@ -37,7 +37,6 @@ for i in range (100):
     # read the contents that we wish to send as topic content
     contents = process.read ()
     msg = {"time_stamp":time.time(), "info":contents}
-    print("message fetched: ", msg)
 
     # send the contents under topic utilizations. Note that it expects
     # the contents in bytes so we convert it to bytes.
@@ -48,6 +47,7 @@ for i in range (100):
     # like <timestamp, contents of top>
     #
     producer.send ("utilizations", msg)
+    print("message sent: ", i)
     producer.flush ()   # try to empty the sending buffer
 
     # sleep a second
