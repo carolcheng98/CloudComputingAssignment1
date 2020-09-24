@@ -18,14 +18,15 @@ import os   # need this for popen
 import time # for sleep
 from kafka import KafkaProducer  # producer of events
 from json import dumps #to parse input to json
+from datetime import datetime
 
 # We can make this more sophisticated/elegant but for now it is just
 # hardcoded to the setup I have on my local VMs
 
 # acquire the producer
 # (you will need to change this to your bootstrap server's IP addr)
-producer = KafkaProducer (bootstrap_servers="129.114.25.103", 
-                                          acks=1, value_serializer=lambda x: json.dumps(x).encode('utf-8'))  # wait for leader to write to log
+producer = KafkaProducer (bootstrap_servers="129.114.24.206:9092", 
+                                          acks=1, value_serializer=lambda x: json.dumps(x).encode('ascii'))  # wait for leader to write to log
 
 # say we send the contents 100 times after a sleep of 1 sec in between
 for i in range (100):
@@ -35,7 +36,8 @@ for i in range (100):
 
     # read the contents that we wish to send as topic content
     contents = process.read ()
-    msg = {"time_stamp":time.time(), "process":contents}
+    msg = {"time_stamp":time.time(), "info":contents}
+    print("message fetched: ", msg)
 
     # send the contents under topic utilizations. Note that it expects
     # the contents in bytes so we convert it to bytes.
@@ -45,7 +47,7 @@ for i in range (100):
     # You will need to modify it to send a JSON structure, say something
     # like <timestamp, contents of top>
     #
-    producer.send ("utilizations", value=bytes (contents, 'ascii'))
+    producer.send ("utilizations", msg)
     producer.flush ()   # try to empty the sending buffer
 
     # sleep a second
