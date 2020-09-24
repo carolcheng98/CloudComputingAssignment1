@@ -22,7 +22,7 @@ import couchdb
 
 # set up database
 couch_server = couchdb.Server('http://admin:123456@127.0.0.1:5984/')
-db = couch_server.create('test-db1')
+db = couch_server['test-db1']
 
 # acquire the consumer
 # (you will need to change this to your bootstrap server's IP addr)
