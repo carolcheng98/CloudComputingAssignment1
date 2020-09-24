@@ -36,9 +36,9 @@ for i in range (100):
 
     # read the contents that we wish to send as topic content
     contents = process.read ()
-    
+
     ts = datetime.now().strftime('%Y-%m-%d %H:%M:%S %f')
-    msg = {"time_stamp":ts(), "info":contents}
+    msg = {"time_stamp":ts, "info":contents}
 
     # send the contents under topic utilizations. Note that it expects
     # the contents in bytes so we convert it to bytes.
