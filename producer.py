@@ -26,7 +26,7 @@ from datetime import datetime
 # acquire the producer
 # (you will need to change this to your bootstrap server's IP addr)
 producer = KafkaProducer (bootstrap_servers="129.114.24.206:9092", 
-                                          acks=1, value_serializer=lambda x: json.dumps(x).encode('ascii'))  # wait for leader to write to log
+                                          acks=1, value_serializer=lambda x: dumps(x).encode('ascii'))  # wait for leader to write to log
 
 # say we send the contents 100 times after a sleep of 1 sec in between
 for i in range (100):
